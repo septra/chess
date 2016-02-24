@@ -22,16 +22,17 @@ class Board(object):
     """
     def __init__(self):
         self.grid = {
-            letter: [None]*8 for letter in "ABCDEFGH"
+            letter: ["  * "]*8 for letter in "ABCDEFGH"
         }
         self.place_black()
         self.place_white()
 
     def move_piece(self, cur_position, next_position):
         piece  = self.piece_on_position(cur_position)
-        print piece
         self.grid[next_position[0]][int(next_position[1])-1] = piece
-        self.grid[cur_position[0]][int(cur_position[1])-1] = None
+        self.grid[cur_position[0]][int(cur_position[1])-1] = "  * "
+
+        print self.__repr__()
 
     def piece_on_position(self, position):
         return self.grid[position[0]][int(position[1])-1]
@@ -83,4 +84,14 @@ class Board(object):
         self.grid['D'][7], self.grid['E'][7] = queen, king
 
     def __repr__(self):
-        return "\n".join(str(row) for row in self.grid)
+        columns = [self.grid[col] for col in "ABCDEFGH"]
+
+        rows = []
+        for n in xrange(8):
+            temp_row = []
+            for column in columns:
+                temp_row.append(column[-(n+1)])
+            rows.append(str(8-n)+ "  " + "  ".join(map(str,temp_row)))
+        rows.append("  " + "  ".join([s.rjust(4) for s in "ABCDEFGH"]))
+
+        return str("\n".join(rows))
