@@ -1,4 +1,3 @@
-
 class Piece(object):
     """
     Definition for a piece.
@@ -17,17 +16,25 @@ class Piece(object):
                         name=self.name,
                         colour=self.colour[0]))
 
-
 class Board(object):
     """
     The main game class.
     """
     def __init__(self):
         self.grid = {
-            let: [None]*8 for let in "ABCDEFGH"
+            letter: [None]*8 for letter in "ABCDEFGH"
         }
         self.place_black()
         self.place_white()
+
+    def move_piece(self, cur_position, next_position):
+        piece  = self.piece_on_position(cur_position)
+        print piece
+        self.grid[next_position[0]][int(next_position[1])-1] = piece
+        self.grid[cur_position[0]][int(cur_position[1])-1] = None
+
+    def piece_on_position(self, position):
+        return self.grid[position[0]][int(position[1])-1]
 
     def place_white(self):
         # Place pawns
