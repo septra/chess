@@ -37,5 +37,17 @@ class TestGame(unittest.TestCase):
                     str(self.board.piece_on_position('A' + row)),
                     str(rook))
 
+    def test_piece_move_functionality(self):
+        a2_pawn = self.board.piece_on_position('A2')
+        self.board.move_piece('A2', 'A4')
+        self.assertEqual(
+            self.board.piece_on_position('A2'),
+            "  * "
+        )
+        self.assertEqual(
+            self.board.piece_on_position('A4'),
+            a2_pawn
+        )
+
 if __name__=='__main__':
     unittest.main()
