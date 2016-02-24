@@ -11,7 +11,7 @@ app = Flask(__name__)
 socketio = SocketIO(app)
 
 @app.route('/')
-def main()
+def main():
     return render_template('index.html')
 
 def game_play():
@@ -29,3 +29,5 @@ if __name__=='__main__':
 
     game = threading.Thread(target=game_play)
     game.start()
+
+    print("Server running on http://127.0.0.1:5000")
