@@ -1,9 +1,13 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+<<<<<<< HEAD
 
 *py~
 *swp
+=======
+*$py.class
+>>>>>>> bc3bd4e3ecb38d14195ad6356913e34490032c61
 
 # C extensions
 *.so
@@ -16,6 +20,10 @@ develop-eggs/
 dist/
 downloads/
 eggs/
+<<<<<<< HEAD
+=======
+.eggs/
+>>>>>>> bc3bd4e3ecb38d14195ad6356913e34490032c61
 lib/
 lib64/
 parts/
@@ -39,9 +47,18 @@ pip-delete-this-directory.txt
 htmlcov/
 .tox/
 .coverage
+<<<<<<< HEAD
 .cache
 nosetests.xml
 coverage.xml
+=======
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.hypothesis/
+>>>>>>> bc3bd4e3ecb38d14195ad6356913e34490032c61
 
 # Translations
 *.mo
@@ -56,4 +73,9 @@ docs/_build/
 # PyBuilder
 target/
 
+<<<<<<< HEAD
 *.ipynb_checkpoints
+=======
+#Ipython Notebook
+.ipynb_checkpoints
+>>>>>>> bc3bd4e3ecb38d14195ad6356913e34490032c61
